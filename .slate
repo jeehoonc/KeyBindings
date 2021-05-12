@@ -1,0 +1,68 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# alias
+alias screenSizeOneThirdX screenSizeX/3
+alias screenSizeHalfY     screenSizeY/2
+alias screenOneThirdX     screenOriginX+screenSizeXOneThird
+alias screenTwoThirdX     screenOriginX+2*screenSizeXOneThird
+alias screenHalfY         screenOriginY*sizeYHalf
+alias screenUpCenterXY    screenOneThirdX;screenOriginY
+alias screenDownCenterXY  screenOneThirdX;screenHalfY
+alias screenSizeThirdX    screenSizeX/3
+
+# Restart
+bind r:ctrl;alt relaunch
+
+# Hint
+bind esc:cmd hint
+
+# grid setup
+bind u:ctrl;cmd;alt       corner top-left resize:screenSizeX/3;screenSizeY/2
+bind i:ctrl;cmd;alt       move   screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2
+bind o:ctrl;cmd;alt       corner top-right resize:screenSizeX/3;screenSizeY/2
+bind j:ctrl;cmd;alt       push   left bar-resize:screenSizeX/3
+bind k:ctrl;cmd;alt       move   screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+bind l:ctrl;cmd;alt       push   right bar-resize:screenSizeX/3
+bind m:ctrl;cmd;alt       corner bottom-left resize:screenSizeX/3;screenSizeY/2
+bind ,:ctrl;cmd;alt       move   screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
+bind .:ctrl;cmd;alt       corner bottom-right resize:screenSizeX/3;screenSizeY/2
+# bind v:ctrl;cmd;alt       move   screenOriginX;screenOriginY screenSizeX;screenSizeY  # voll
+bind left:ctrl;cmd        push left  bar-resize:screenSizeX/2
+bind right:ctrl;cmd       push right bar-resize:screenSizeX/2
+bind up:ctrl;cmd          push up    bar-resize:screenSizeY/2
+bind down:ctrl;cmd        push down  bar-resize:screenSizeY/2
+bind v:ctrl;cmd           push up    bar-resize:screenSizeY
+
+# focus bindings
+bind i:ctrl;alt      focus 'IntelliJ IDEA'
+bind t:ctrl;alt      focus 'iTerm2'
+bind c:ctrl;alt      focus 'Google Chrome'
+bind s:ctrl;alt      focus 'Safari'
+bind u:ctrl;alt      focus 'Ulysses'
+bind e:ctrl;alt      focus 'Evernote'
+bind k:ctrl;alt      focus 'KakaoTalk'
+bind n:ctrl;cmd      focus behind
+bind h:cmd      focus left
+bind l:cmd      focus right
+bind j:cmd      focus up
+bind k:cmd      focus down
+
+# throw bindings
+bind left:ctrl;cmd;alt  throw left resize
+bind right:ctrl;cmd;alt throw right resize
+bind up:ctrl;cmd;alt    throw up resize
+bind down:ctrl;cmd;alt  throw down resize
+
+# LAYOUTS
+layout surfing_chrome 'Google Chrome' push left bar-resize:screenSizeX*3/4
+layout surfing_chrome 'iTerm2' push right bar-resize:screenSizeX/4
+layout parallels 'CentOS Dock Helper' push right bar-resize:screenSizeX*3/4
+layout parallels 'Google Chrome' push left bar-resize:screenSizeX/4
+layout parallels 'iTerm2' throw left resize
+bind 1:ctrl layout surfing_chrome
+bind 2:ctrl layout parallels
+# bind 2:ctrl layout terminal
+# bind 3:ctrl layout development
+# bind 4:ctrl layout testing
