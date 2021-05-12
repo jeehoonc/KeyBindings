@@ -1,0 +1,13 @@
+[user]
+	email = jhchacc@gmail.com
+	name = Jeehoon Cha
+[alias]
+	a = add
+	au = add -u
+	st = status
+	br = branch
+	co = checkout
+	rbias = rebase -i --autosquash
+	camned = commit --amend --no-edit
+	cmfx = commit --fix
+
