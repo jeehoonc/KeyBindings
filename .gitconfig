@@ -10,4 +10,5 @@
 	rbias = rebase -i --autosquash
 	camned = commit --amend --no-edit
 	cmfx = commit --fix
-
+[pager]
+	branch = false
