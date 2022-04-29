@@ -11,4 +11,4 @@
 	camned = commit --amend --no-edit
 	cmfx = commit --fix
 [core]
-        pager = cat  # git config --global core.pager cat
+        pager = less -F -X  # git config --global core.pager "less -F -X"
