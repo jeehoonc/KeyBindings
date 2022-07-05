@@ -33,6 +33,13 @@
         "command": "-editor.action.marker.prev",
         "when": "editorFocus && !editorReadonly"
     },
+
+    // ctrl + d
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
     {
         "key": "ctrl+d",
         "command": "-deleteRight",
@@ -43,10 +50,24 @@
         "command": "-workbench.action.debug.run",
         "when": "!inDebugMode && !terminalFocus"
     },
+    
+    // cmd + d
     {
         "key": "cmd+d",
         "command": "editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        // "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.duplicateSelection",
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.copyLinesDownAction",
     },
     {
         "key": "f3",
@@ -74,11 +95,6 @@
         "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
     },
     {
-        "key": "shift+alt+e",
-        "command": "remote-wsl.revealInExplorer",
-        "when": "editorFocus && isWindows && remoteName == 'wsl'"
-    },
-    {
         "key": "shift+alt+r",
         "command": "-remote-wsl.revealInExplorer",
         "when": "editorFocus && isWindows && remoteName == 'wsl'"
@@ -92,16 +108,6 @@
         "key": "f2",
         "command": "-editor.action.rename",
         "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "cmd+d",
-        "command": "-editor.action.duplicateSelection",
-        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "cmd+d",
-        "command": "-editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorHasSelection && !editorReadonly"
     },
     {
         "key": "shift+cmd+r",
@@ -229,25 +235,8 @@
         "command": "-workbench.action.navigateForward"
     },
     {
-        "key": "cmd+e",
-        "command": "-workbench.action.openRecent"
-    },
-    {
-        "key": "cmd+e",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
-    },
-    {
-        "key": "ctrl+tab",
-        "command": "-workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
-    },
-    {
         "key": "shift+cmd+w",
         "command": "-workbench.action.closeWindow"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "editor.action.addSelectionToNextFindMatch",
-        "when": "editorFocus"
     },
     {
         "key": "ctrl+g",
@@ -445,13 +434,16 @@
         "when": "!panelFocus && !sideBarFocus"
     },
     {
-        "key": "ctrl+shift+tab",
-        "command": "-workbench.action.quickOpenLeastRecentlyUsedEditorInGroup"
+        "key": "cmd+e",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
     },
     {
-        "key": "ctrl+shift+tab",
-        "command": "-workbench.action.quickOpenNavigatePreviousInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
+        "key": "cmd+e",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "-workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
     },
     {
         "key": "ctrl+tab",
@@ -461,6 +453,15 @@
     {
         "key": "ctrl+tab",
         "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "-workbench.action.quickOpenLeastRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "-workbench.action.quickOpenNavigatePreviousInEditorPicker",
         "when": "inEditorsPicker && inQuickOpen"
     },
     {
@@ -484,25 +485,25 @@
 
     // editor navigation
     {
-        "key": "cmd+[",
+        "key": "cmd+shift+[",
         "command": "workbench.action.editor.previousChange"
     },
     {
-        "key": "cmd+]",
+        "key": "cmd+shift+]",
         "command": "workbench.action.editor.nextChange"
     },
     {
         "key": "cmd+[",
-        "command": "-workbench.action.navigateBack"
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "cmd+]",
+        "command": "workbench.action.navigateForward"
     },
     {
         "key": "cmd+[",
         "command": "-editor.action.outdentLines",
         "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "cmd+]",
-        "command": "-workbench.action.navigateForward"
     },
     {
         "key": "cmd+]",
@@ -516,14 +517,6 @@
     {
         "key": "alt+cmd+right",
         "command": "-workbench.action.nextEditor"
-    },
-    {
-        "key": "ctrl+left",
-        "command": "workbench.action.navigateBack"
-    },
-    {
-        "key": "alt+cmd+left",
-        "command": "-workbench.action.navigateBack"
     },
 
     // git lens
@@ -543,5 +536,37 @@
         "key": "shift+cmd+l",
         "command": "-editor.action.selectHighlights",
         "when": "editorFocus"
+    },
+    {
+        "key": "shift+alt+e",
+        "command": "workbench.files.action.showActiveFileInExplorer"
+    },
+    {
+        "key": "cmd+pagedown",
+        "command": "-selectNextPageSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "cmd+pagedown",
+        "command": "-scrollPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+pagedown",
+        "command": "editor.gotoNextFold"
+    },
+    {
+        "key": "cmd+pageup",
+        "command": "editor.gotoPreviousFold"
+    },
+    {
+        "key": "cmd+pageup",
+        "command": "-selectPrevPageSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "cmd+pageup",
+        "command": "-scrollPageUp",
+        "when": "textInputFocus"
     }
 ]
